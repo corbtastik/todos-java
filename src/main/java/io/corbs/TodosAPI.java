@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin
 public class TodosAPI {
 
     private Map<Integer, Todo> todos = new HashMap<>();
@@ -49,7 +48,7 @@ public class TodosAPI {
             return Todo.builder().build();
         }
         Todo old = todos.get(id);
-        old.setCompleted(todo.getCompleted());
+        old.setCompleted(todo.isCompleted());
         if(!StringUtils.isEmpty(todo.getTitle())){
             old.setTitle(todo.getTitle());
         }
