@@ -32,14 +32,10 @@ public class TodosAPI {
         LOG.warn("creating Todo " + todo);
         LOG.trace("creating Todo " + todo);
         LOG.error("creating Todo " + todo);
+
         todo.setId(seq++);
         todos.put(todo.getId(), todo);
-        if(rand.nextBoolean()) {
-            return todos.get(todo.getId());
-        } else {
-            // an external call
-            throw new RuntimeException("help");
-        }
+        return todos.get(todo.getId());
     }
 
     public Todo altCreateTodo(Todo todo) {
