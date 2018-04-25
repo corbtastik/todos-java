@@ -1,4 +1,4 @@
-package io.corbs;
+package io.todos;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
@@ -16,8 +16,6 @@ public class TodosAPI {
     private static final Logger LOG = LoggerFactory.getLogger(TodosApp.class);
 
     private static Integer seq = 0;
-
-    private static Random rand = new Random();
 
     @GetMapping("/")
     public List<Todo> listTodos() {

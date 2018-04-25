@@ -1,4 +1,4 @@
-package io.corbs;
+package io.todos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,5 +14,4 @@ class Todo {
     private String title = "";
     private boolean completed = false;
     private Integer order = -1;
-    private String url = "http://localhost:8080";
 }
