@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: todos-java
+  cloud:
+    config:
+      uri: http://config-server.apps.pcf.corbscloud.io
+      fail-fast: true
+#      username: don't use these properties here, force the hydration up (i.e. cl args)
+#      password: ditto

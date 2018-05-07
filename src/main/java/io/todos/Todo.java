@@ -13,5 +13,4 @@ class Todo {
     private Integer id;
     private String title = "";
     private boolean completed = false;
-    private Integer order = -1;
 }

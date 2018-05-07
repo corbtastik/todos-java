@@ -5,7 +5,7 @@
 
 	<groupId>io.todos</groupId>
 	<artifactId>todos-java</artifactId>
-	<version>0.0.1-RELEASE</version>
+	<version>0.0.3-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>todos-java</name>
@@ -25,6 +25,22 @@
 	</properties>
 
 	<dependencies>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-jmx</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
