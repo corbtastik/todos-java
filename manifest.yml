@@ -3,7 +3,7 @@ applications:
 - name: todos-java
   memory: 1G
   host: todos-java
-  path: target/todos-java-0.0.1-RELEASE.jar
+  path: target/todos-java-1.0.0.RELEASE.jar
   buildpack: java_buildpack
   env:
     SPRING_PROFILES_ACTIVE: pcf
