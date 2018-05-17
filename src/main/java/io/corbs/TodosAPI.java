@@ -1,5 +1,6 @@
 package io.corbs;
 
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/api")
 public class TodosAPI {
 
     private Map<Integer, Todo> todos = new HashMap<>();
@@ -45,16 +47,19 @@ public class TodosAPI {
 
     @PatchMapping("/{id}")
     public Todo update(@PathVariable Integer id, @RequestBody Todo todo) {
+        if(todo == null) {
+            throw new IllegalArgumentException("todo cannot be null yo");
+        }
         if(!todos.containsKey(id)) {
-            return Todo.builder().build();
+            throw new RuntimeException("cannot update a todo with that id: " + id);
         }
         Todo old = todos.get(id);
-        old.setCompleted(todo.getCompleted());
+        if(!ObjectUtils.isEmpty(todo.getCompleted())) {
+            old.setCompleted(todo.getCompleted());
+        }
+
         if(!StringUtils.isEmpty(todo.getTitle())){
             old.setTitle(todo.getTitle());
-        }
-        if(todo.getOrder() > -1) {
-            old.setOrder(todo.getOrder());
         }
         return old;
     }

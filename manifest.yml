@@ -1,9 +1,11 @@
 ---
 applications:
-- name: todoskit-java
+- name: todos-java
   memory: 1G
-  host: todoskit-java
-  path: target/todos-java-0.0.1-SNAPSHOT.jar
+  routes:
+  - route: todos-java.apps.pcf.corbscloud.io
+  - route: todos-java-1-0-0-RELEASE.apps.pcf.corbscloud.io
+  path: target/todos-java-1.0.0.RELEASE.jar
   buildpack: java_buildpack
   env:
-    SPRING_PROFILES_ACTIVE: pcf
+    JAVA_OPTS: '-Deureka.client.serviceUrl.defaultZone=http://cloud-index.apps.pcf.corbscloud.io/eureka/'
