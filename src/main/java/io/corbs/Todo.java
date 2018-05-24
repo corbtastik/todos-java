@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 class Todo {
     private Integer id;
     private String title;
-    private Boolean completed;
+    private Boolean completed = Boolean.FALSE;
 }
