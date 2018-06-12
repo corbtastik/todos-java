@@ -27,7 +27,7 @@ public class TodosAppTests {
 
         Todo createdTodo = this.restTemplate.postForObject("/api/", todo, Todo.class);
 
-        assertThat(createdTodo.getId()).isGreaterThanOrEqualTo(0);
+        assertThat(createdTodo.getId()).isNotEmpty();
         assertThat(createdTodo.getTitle()).isEqualTo("unit test create todo");
         assertThat(createdTodo.getCompleted()).isFalse();
 
